@@ -106,14 +106,14 @@ for (c in 1:ncol(data_mat)) {
       cell <- unlist(data_mat[r,c])
       cell <- paste(cell, collapse = ", ")
       cell <- gsub("NA; ", "", cell)
-      cell <- gsub("NA", "", cell)
+      #cell <- gsub("NA", "", cell)
     }
     data_mat_clean[r,c] <- cell
   }
 }
 
 rownames(data_mat_clean) <- data_mat[,"identifier"]
-colnames(data_mat_clean) <- colnames(data_mat)
+colnames(data_mat_clean) <- gsub("\\.", "_", colnames(data_mat))
 
 data_df <- as.data.frame(data_mat_clean)
 
@@ -122,6 +122,3 @@ sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
 
 
 geojson_write(sp_df, precision = 10, file = "export/Miletus_Building_Catalogue.geojson")
-
-
-
