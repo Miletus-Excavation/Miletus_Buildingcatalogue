@@ -72,6 +72,7 @@ data_mat <- data_mat %>%
                       NA)) %>%
   select(-gazId)
 
+# #TODO:  ghazetter link bei NA rauswerfen
 
 #'data_mat$label <- paste('<b><a href="', data_mat$URL, '">', data_mat$identifier,
 #'                   '</a></b><br/>Datierung: ', data_mat$period.start, '--',
