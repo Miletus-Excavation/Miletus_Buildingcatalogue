@@ -18,7 +18,7 @@ connection <- connect_idaifield(serverip = "127.0.0.1",
 buildings <- get_idaifield_docs(
   connection = connection,
   projectname = "milet",
-  simplified = TRUE)  %>% 
+  simplified = TRUE, keep_geometry = TRUE)  %>% 
   select_by(by = "liesWithin", value = "Bauwerkskatalog")
 
 
@@ -49,16 +49,24 @@ plot(sp_geom)
 data_mat <- as.data.frame(idaifield_as_matrix(buildings))
 rownames(data_mat) <- data_mat[,"identifier"]
 
+buildings_raw <- get_idaifield_docs(
+  connection = connection,
+  projectname = "milet",
+  simplified = FALSE, keep_geometry = FALSE)  %>% 
+  select_by(by = "liesWithin", value = "Bauwerkskatalog")
+
+for (i in 1:length(data_mat)) {
+  data_mat$literature[i] <- list(buildings_raw[[i]]$literature)
+}
 
 
 keep <- c("identifier", "shortDescription", "description",
           "period.start", "period.end",
           "buildingCategory", "context", "buildingType",
-          "excavatedIn", "excavatedBy",
           "gazId", "literature")
 
 data_mat <- data_mat %>%
-  dplyr::select(keep) %>%
+  dplyr::select(all_of(keep)) %>%
   mutate(shortDescription = as.character(unlist(shortDescription)),
          buildingCategory = as.factor(unlist(buildingCategory)),
          period.start = as.factor(unlist(period.start)),
@@ -83,6 +91,7 @@ data_mat <- data_mat %>%
 data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
 
 lit_col <- which(colnames(data_mat) == "literature")
+
 
 for (c in 1:ncol(data_mat)) {
   for (r in 1:nrow(data_mat)) {
@@ -122,4 +131,4 @@ sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
 #plot(sp_df)
 
 
-geojson_write(sp_df, precision = 10, file = "export/Miletus_Building_Catalogue.geojson")
+geojson_write(sp_df, precision = 10, file = "export/202205_Miletus_Building_Catalogue.geojson")
