@@ -131,4 +131,4 @@ sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
 #plot(sp_df)
 
 
-geojson_write(sp_df, precision = 10, file = "export/202205_Miletus_Building_Catalogue.geojson")
+geojson_write(sp_df, precision = 10, file = "export/202205_Miletus_Building_Catalogue_v6.geojson")
