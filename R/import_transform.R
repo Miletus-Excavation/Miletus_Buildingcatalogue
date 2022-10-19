@@ -3,6 +3,7 @@ library(tidyverse)
 library(rgdal)
 library(sf)
 library(geojsonio)
+library(utf8)
 source(file = "R/functions.R")
 
 
@@ -91,7 +92,7 @@ data_mat <- data_mat %>%
 data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
 
 lit_col <- which(colnames(data_mat) == "literature")
-
+url_col <- which(colnames(data_mat) == "URL")
 
 for (c in 1:ncol(data_mat)) {
   for (r in 1:nrow(data_mat)) {
@@ -112,13 +113,15 @@ for (c in 1:ncol(data_mat)) {
       cell <- paste("<ul>", paste(final, collapse = " "), "</ul>", sep = " ")
       cell <- gsub('<li><a href="https://zenon.dainst.org/Record/NA">NA, NA</a></li>',
                    "", cell)
+    } else if (c == url_col){
+      cell <- if (is.na(data_mat[r,c])) "" else data_mat[r,c]
     } else {
       cell <- unlist(data_mat[r,c])
       cell <- paste(cell, collapse = ", ")
       cell <- gsub("NA; ", "", cell)
       #cell <- gsub("NA", "", cell)
     }
-    data_mat_clean[r,c] <- cell
+    data_mat_clean[r,c] <- as_utf8(cell)
   }
 }
 
