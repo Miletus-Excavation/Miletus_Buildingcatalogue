@@ -1,0 +1,38 @@
+,period_rough,period,from,to
+1,Neolitisch,Neolitisch,-7000,-5001
+2,Chalkolitisch,Chalkolitisch [Milet I],-5000,-3001
+3,Bronzezeitlich,Bronzezeitlich,-4250,-1001
+4,Bronzezeitlich,Frühbronzezeitlich [Milet II],-4250,-2001
+5,Bronzezeitlich,Mittelbronzezeitlich [Milet III],-2000,-1701
+6,Bronzezeitlich,Spätbronzezeitlich [Milet IV],-1700,-1401
+7,Bronzezeitlich,Spätbronzezeitlich [Milet V],-1400,-1311
+8,Bronzezeitlich,Spätbronzezeitlich [Milet VI],-1310,-1191
+9,Bronzezeitlich,Spätbronzezeitlich [Milet VII],-1190,-1051
+10,Geometrisch,Geometrisch,-1050,-901
+11,Geometrisch,Protogeometrisch,-900,-671
+12,Geometrisch,Frühgeometrisch,-900,-851
+13,Geometrisch,Mittelgeometrisch,-850,-751
+14,Geometrisch,Spätgeometrisch,-750,-671
+15,Archaisch,Archaisch,-670,-480
+16,Archaisch,Früharchaisch,-670,-581
+17,Archaisch,Hocharchaisch,-580,-551
+18,Archaisch,Spätarchaisch,-550,-480
+19,Archaisch,Perserzerstörung,-494,-494
+20,Klassisch,Klassisch,-480,-324
+21,Klassisch,Frühklassisch,-480,-426
+22,Klassisch,Spätklassik,-425,-324
+23,Hellenistisch,Hellenistisch,-323,-32
+24,Hellenistisch,Früher Hellenismus,-323,-178
+25,Hellenistisch,Später Hellenismus,-177,-32
+26,Kaiserzeitlich,Kaiserzeitlich,-31,305
+27,Kaiserzeitlich,Frühkaiserzeitlich,-31,98
+28,Kaiserzeitlich,Mittelkaiserzeitlich,100,192
+29,Kaiserzeitlich,Spätkaiserzeitlich,193,305
+30,Spätantik / Byzantinisch,Spätantik,306,699
+31,Spätantik / Byzantinisch,Byzantinisch,306,1299
+32,Spätantik / Byzantinisch,Frühbyzantinisch / Spätantik,306,699
+33,Spätantik / Byzantinisch,Mittelbyzantinisch,700,999
+34,Spätantik / Byzantinisch,Spätbyzantinisch,1000,1299
+35,Mentese / emiratszeitlich,Mentese / emiratszeitlich,1300,1425
+36,Osmanisch,Osmanisch,1426,1899
+37,Rezent,Rezent,1900,1999
