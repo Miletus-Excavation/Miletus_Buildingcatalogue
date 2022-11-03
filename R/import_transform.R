@@ -48,6 +48,11 @@ for (i in seq_along(buildings)) {
   }
 }
 
+buildings_check <- idaifield_as_matrix(buildings) %>% as.data.frame()
+which(is.na(buildings_check$geometry))
+buildings_check$identifier[67]
+
+
 sp_geom <- lapply(buildings, function(x) unlist(x$geometry$coordinates))
 
 sp_geom <- SpatialPolygons(sp_geom, pO = 1:length(buildings), proj4string=CRS("+init=epsg:4326"))
@@ -147,7 +152,7 @@ data_df <- as.data.frame(data_mat_clean)
 
 buildings_raw[[which(data_df$identifier == "Bouleuterion")]]$literature
 
-test <- data_df[c("identifier", "literature")]
+#test <- data_df[c("identifier", "literature")]
 
 periods <- read.csv(file = "import/period_dat.csv", sep = ",", encoding = "UTF-8")
 
@@ -196,4 +201,4 @@ sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
 
 
 
-geojson_write(sp_df, precision = 10, file = #"export/202210_Miletus_Building_Catalogue_v10.geojson")
+geojson_write(sp_df, precision = 10, file = "export/202211_Miletus_Building_Catalogue_v12.geojson")
