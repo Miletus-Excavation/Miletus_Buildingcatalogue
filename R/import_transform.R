@@ -4,56 +4,41 @@ library(rgdal)
 library(sf)
 library(geojsonio)
 library(utf8)
+
+
 source(file = "R/functions.R")
 
+source(file = "R/load_data.R")
 
 
 #browseVignettes("idaifieldR")
 
 
 
+buildings_clean <- buildings
 
-## this will work only from idaifieldR 0.2.2!
-options(digits = 20)
-connection <- connect_idaifield(serverip = "127.0.0.1",
-                                user = "R",
-                                pwd = "hallo")
 
-buildings <- get_idaifield_docs(
-  connection = connection,
-  projectname = "milet", raw = FALSE) %>%
-  select_by(by = "liesWithin", value = "Bauwerkskatalog") %>%
-  simplify_idaifield(replace_uids = TRUE, keep_geometry = TRUE)
-
-data_mat <- buildings %>% idaifield_as_matrix() %>% as.data.frame()
-rownames(data_mat) <- data_mat[,"identifier"]
-
-data$identifier[which(is.na(data$geometry))]
-
-for (i in seq_along(buildings)) {
-  type <- buildings[[i]]$geometry$type
+for (i in seq_along(buildings_clean)) {
+  type <- buildings_clean[[i]]$geometry$type
   if (is.null(type)) {
     next
   } else if (type == "Polygon" | type == "MultiPolygon") {
-    coordslist <- buildings[[i]]$geometry$coordinates
+    coordslist <- buildings_clean[[i]]$geometry$coordinates
     for (item in seq_along(coordslist)) {
       coordslist[[item]] <- make_sp_polygon(coordslist[[item]],
                                             from_epsg = 32635,
                                             to_epsg = 4326)
-      buildings[[i]]$geometry$coordinates[[item]] <- coordslist[[item]]
+      buildings_clean[[i]]$geometry$coordinates[[item]] <- coordslist[[item]]
     }
-    polylist <- buildings[[i]]$geometry$coordinates
+    polylist <- buildings_clean[[i]]$geometry$coordinates
     polylist <- Polygons(polylist, ID = buildings[[i]]$identifier)
-    buildings[[i]]$geometry$coordinates <- polylist
+    buildings_clean[[i]]$geometry$coordinates <- polylist
   }
 }
 
-buildings_check <- idaifield_as_matrix(buildings) %>% as.data.frame()
-which(is.na(buildings_check$geometry))
-buildings_check$identifier[67]
 
 
-sp_geom <- lapply(buildings, function(x) unlist(x$geometry$coordinates))
+sp_geom <- lapply(buildings_clean, function(x) unlist(x$geometry$coordinates))
 
 sp_geom <- SpatialPolygons(sp_geom, pO = 1:length(buildings), proj4string=CRS("+init=epsg:4326"))
 plot(sp_geom)
@@ -95,11 +80,7 @@ data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
 
 
 
-buildings_raw <- get_idaifield_docs(
-  connection = connection,
-  projectname = "milet", raw = FALSE)  %>% 
-  select_by(by = "liesWithin", value = "Bauwerkskatalog") %>%
-  simplify_idaifield()
+
 
 for (i in 1:length(data_mat)) {
   data_mat$literature[i] <- list(buildings_raw[[i]]$literature)
@@ -150,7 +131,7 @@ colnames(data_mat_clean) <- gsub("\\.", "_", colnames(data_mat))
 data_df <- as.data.frame(data_mat_clean)
 
 
-buildings_raw[[which(data_df$identifier == "Bouleuterion")]]$literature
+#buildings[[which(data_df$identifier == "Bouleuterion")]]$literature
 
 #test <- data_df[c("identifier", "literature")]
 
@@ -196,9 +177,9 @@ data_df$period_start_abs <- tmp$period_start_abs
 data_df$period_end_abs <- tmp$period_end_abs
 
 sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
-#plot(sp_df)
+plot(sp_df)
 
 
 
 
-geojson_write(sp_df, precision = 10, file = "export/202211_Miletus_Building_Catalogue_v12.geojson")
+#geojson_write(sp_df, precision = 10, file = "export/202211_Miletus_Building_Catalogue_v12.geojson")
