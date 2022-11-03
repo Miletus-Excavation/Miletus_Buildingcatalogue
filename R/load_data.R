@@ -16,7 +16,7 @@ buildings <- get_idaifield_docs(
 data_mat <- buildings %>% idaifield_as_matrix() %>% as.data.frame()
 rownames(data_mat) <- data_mat[,"identifier"]
 
-data_mat$identifier[which(is.na(data$geometry))]
+data_mat$identifier[which(is.na(data_mat$geometry))]
 
 
 
