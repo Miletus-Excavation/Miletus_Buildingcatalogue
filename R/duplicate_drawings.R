@@ -126,3 +126,4 @@ buildings_complete <- buildings_dating_dupl %>%
 
 # export and save a geojson again (remember to change date for new version)
 st_write(buildings_complete, precision = 10, dsn = "export/20221105_Miletus_geom.geojson")
+
