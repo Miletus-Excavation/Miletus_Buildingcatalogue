@@ -112,7 +112,7 @@ for(i in 1:nrow(buildings_dating)) {
 # remove the first row (NAs) and set the rownames for all rows
 buildings_dating_dupl <- buildings_dating_dupl[-1,]
 rownames(buildings_dating_dupl) <- buildings_dating_dupl$identifier
-
+# never mind the error!
 
 # merge everything with left joins for period (only adding the corresponging values)
 # and full join for the geometry (collecting everything, even geometry without a
@@ -124,12 +124,13 @@ buildings_complete <- buildings_dating_dupl %>%
   select(-hasGeom, -Art, -Shape_Length, -Shape_Area)
 
 #colnames(Miletus_geom)
-colnames(buildings_complete)
+#colnames(buildings_complete)
 
 # export and save a geojson again (remember to change date for new version)
+filename <- "export/20221105_Miletus_geom.geojson"
+file.remove(filename)
 st_write(buildings_complete, precision = 10, 
-         dsn = "export/20221105_Miletus_geom.geojson", 
-         append = FALSE)
+         dsn = filename)
 
 
 # for export of everything separated by period-group:
@@ -161,8 +162,10 @@ for (list in seq_along(group_list)) {
   filename <- paste("export/single/Map_of_Miletus_", num, "_", filename, ".geojson", sep = "")
   
   print(filename)
+  # remove the file, because append = FALSE does not work and overwriting is impossible
+  file.remove(filename)
   # save as individual files!
-  st_write(group_list[[list]], precision = 10, dsn = filename, append = FALSE)
+  st_write(group_list[[list]], precision = 10, dsn = filename)
 }
 
 
