@@ -152,8 +152,8 @@ for (group in unique(periods_groups$group)) {
   # append each group again to the list
   group_list <- append(group_list, new_list)
 }
-# remove first empty list
-group_list[1] <- NULL
+# add rows without dating
+group_list <- append(group_list, list("Undatiert" = buildings_complete[which(is.na(buildings_complete$group)),]))
 
 # save each group as an individual file: 
 for (list in seq_along(group_list)) {
