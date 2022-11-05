@@ -1,0 +1,11 @@
+{
+"type": "FeatureCollection",
+"name": "Map_of_Miletus_04_Geometrisch",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32635" } },
+"features": [
+{ "type": "Feature", "properties": { "identifier": "Nekropole am Değirmentepe", "period.start": "Frühbronzezeitlich [Milet II]", "period.end": "Spätkaiserzeitlich", "period": "Protogeometrisch", "from": -900, "to": -671, "color": "#FF574A", "group": "Geometrisch", "OBJECTID": null }, "geometry": { "type": "MultiPolygon", "coordinates": [ ] } },
+{ "type": "Feature", "properties": { "identifier": "Nekropole am Değirmentepe", "period.start": "Frühbronzezeitlich [Milet II]", "period.end": "Spätkaiserzeitlich", "period": "Frühgeometrisch", "from": -900, "to": -851, "color": "#F9483B", "group": "Geometrisch", "OBJECTID": null }, "geometry": { "type": "MultiPolygon", "coordinates": [ ] } },
+{ "type": "Feature", "properties": { "identifier": "Nekropole am Değirmentepe", "period.start": "Frühbronzezeitlich [Milet II]", "period.end": "Spätkaiserzeitlich", "period": "Mittelgeometrisch", "from": -850, "to": -751, "color": "#EA392C", "group": "Geometrisch", "OBJECTID": null }, "geometry": { "type": "MultiPolygon", "coordinates": [ ] } },
+{ "type": "Feature", "properties": { "identifier": "Nekropole am Değirmentepe", "period.start": "Frühbronzezeitlich [Milet II]", "period.end": "Spätkaiserzeitlich", "period": "Spätgeometrisch", "from": -750, "to": -671, "color": "#DB2A1D", "group": "Geometrisch", "OBJECTID": null }, "geometry": { "type": "MultiPolygon", "coordinates": [ ] } }
+]
+}

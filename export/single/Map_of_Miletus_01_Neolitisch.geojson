@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Map_of_Miletus_01_Neolitisch",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32635" } },
+"features": [
+
+]
+}
