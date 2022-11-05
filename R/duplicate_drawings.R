@@ -127,3 +127,46 @@ buildings_complete <- buildings_dating_dupl %>%
 # export and save a geojson again (remember to change date for new version)
 st_write(buildings_complete, precision = 10, dsn = "export/20221105_Miletus_geom.geojson")
 
+
+# for export of everything separated by period-group:
+
+# make an emptly list
+group_list <- list()
+for (group in unique(periods_groups$group)) {
+  if (group %in% unique(buildings_complete$group)) {
+    # if the group is present in our data: 
+    # make a list of all rows that belong to just that group
+    new_list <- list(group = buildings_complete[which(buildings_complete$group == group),])
+    # name the group
+    names(new_list) <- group
+  } else {
+    # if the group is not present in our data, make an empty list
+    new_list <- list(group = NA)
+    # with the corresponding group name
+    names(new_list) <- group
+  }
+  # append each group again to the list
+  group_list <- append(group_list, new_list)
+}
+# remove first empty list
+group_list[1] <- NULL
+
+# save each group as an individual file: 
+for (list in seq_along(group_list)) {
+  # remove bad characters from the name
+  filename <- gsub(" \\/ ", "_", names(group_list[list]))
+  # fixing this manually because i cant grep the ş
+  if (grepl("emiratszeitlich", filename)) {
+    filename <- "Mentesche_emiratszeitlich"
+  }
+  # add a 0 before single numbers so that it will be sorted correctly in explorer etc.
+  num <- ifelse(list < 10, paste("0", list, sep = ""), list)
+  # paste together the filename from number and list name etc.
+  filename <- paste("export/single/Map_of_Miletus_", num, "_", filename, ".geojson", sep = "")
+  
+  print(filename)
+  # save as individual files!
+  st_write(group_list[[list]], precision = 10, dsn = filename, append = FALSE)
+}
+
+
