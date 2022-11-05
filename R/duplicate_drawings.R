@@ -116,16 +116,20 @@ rownames(buildings_dating_dupl) <- buildings_dating_dupl$identifier
 
 # merge everything with left joins for period (only adding the corresponging values)
 # and full join for the geometry (collecting everything, even geometry without a
-# db-entry) and remove the obsolete hasGeom-columns 
+# db-entry) and remove the obsolete columns 
 buildings_complete <- buildings_dating_dupl %>%
   left_join(periods_dat) %>%
   left_join(periods_groups) %>%
   full_join(Miletus_geom) %>%
-  select(-hasGeom)
+  select(-hasGeom, -Art, -Shape_Length, -Shape_Area)
 
+#colnames(Miletus_geom)
+colnames(buildings_complete)
 
 # export and save a geojson again (remember to change date for new version)
-st_write(buildings_complete, precision = 10, dsn = "export/20221105_Miletus_geom.geojson")
+st_write(buildings_complete, precision = 10, 
+         dsn = "export/20221105_Miletus_geom.geojson", 
+         append = FALSE)
 
 
 # for export of everything separated by period-group:
