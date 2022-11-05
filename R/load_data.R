@@ -1,4 +1,3 @@
-
 library(idaifieldR)
 ## this will work only from idaifieldR 0.2.2!
 options(digits = 20)

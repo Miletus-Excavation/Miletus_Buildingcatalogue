@@ -2,7 +2,6 @@ library(idaifieldR)
 library(tidyverse)
 library(rgdal)
 library(sf)
-library(geojsonio)
 library(utf8)
 
 ## source
