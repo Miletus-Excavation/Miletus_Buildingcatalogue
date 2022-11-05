@@ -41,6 +41,8 @@ for (i in seq_along(buildings_clean)) {
 sp_geom <- lapply(buildings_clean, function(x) unlist(x$geometry$coordinates))
 
 sp_geom <- SpatialPolygons(sp_geom, pO = 1:length(buildings), proj4string=CRS("+init=epsg:4326"))
+
+
 plot(sp_geom)
 
 
@@ -83,7 +85,7 @@ data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
 
 
 for (i in 1:length(data_mat)) {
-  data_mat$literature[i] <- list(buildings_raw[[i]]$literature)
+  data_mat$literature[i] <- list(buildings[[i]]$literature)
 }
 
 
@@ -135,46 +137,7 @@ data_df <- as.data.frame(data_mat_clean)
 
 #test <- data_df[c("identifier", "literature")]
 
-periods <- read.csv(file = "import/period_dat.csv", sep = ",", encoding = "UTF-8")
 
-
-tmp <- as.data.frame(matrix(nrow = nrow(data_df), ncol = 4))
-colnames(tmp) <- c("period_start", "period_start_abs", 
-                   "period_end", "period_end_abs")
-
-
-
-tmp$period_end <- data_df$period_end
-tmp$period_start <- data_df$period_start
-
-tmp
-
-for (i in 1:nrow(periods)) {
-  index <- grep(periods$period[i], tmp$period_start)
-  tmp$period_start_abs[index] <- periods$from[i]
-  index <- grep(periods$period[i], tmp$period_end)
-  tmp$period_end_abs[index] <- periods$to[i]
-}
-
-tmp$period_start_abs[grepl("emirat", tmp$period_start)] <- periods$from[grepl("emirat", periods$period)]
-tmp$period_start_abs[grepl("Spätbronzezeitlich", tmp$period_start)] <- periods$from[grepl("Spätbronzezeitlich", periods$period)]
-tmp$period_start_abs[grepl("Chalkolitisch", tmp$period_start)] <- periods$from[grepl("Chalkolitisch", periods$period)]
-tmp$period_start_abs[grepl("Mittelbronzezeitlich", tmp$period_start)] <- periods$from[grepl("Mittelbronzezeitlich", periods$period)]
-tmp$period_start_abs[grepl("Frühbronzezeitlich", tmp$period_start)] <- periods$from[grepl("Frühbronzezeitlich", periods$period)]
-tmp$period_start_abs[grepl("Frühbyzantinisch", tmp$period_start)] <- periods$from[grepl("Frühbyzantinisch", periods$period)]
-
-tmp$period_end_abs[grepl("emirat", tmp$period_end)] <- periods$to[grepl("emirat", periods$period)]
-tmp$period_end_abs[grepl("Spätbronzezeitlich", tmp$period_end)] <- periods$to[grepl("Spätbronzezeitlich", periods$period)]
-tmp$period_end_abs[grepl("Chalkolitisch", tmp$period_end)] <- periods$to[grepl("Chalkolitisch", periods$period)]
-tmp$period_end_abs[grepl("Mittelbronzezeitlich", tmp$period_end)] <- periods$to[grepl("Mittelbronzezeitlich", periods$period)]
-tmp$period_end_abs[grepl("Frühbronzezeitlich", tmp$period_end)] <- periods$to[grepl("Frühbronzezeitlich", periods$period)]
-tmp$period_end_abs[grepl("Frühbyzantinisch", tmp$period_end)] <- periods$to[grepl("Frühbyzantinisch", periods$period)]
-
-
-#tmp[which(is.na(tmp$period_start_abs)),]
-
-data_df$period_start_abs <- tmp$period_start_abs
-data_df$period_end_abs <- tmp$period_end_abs
 
 sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
 plot(sp_df)
@@ -182,4 +145,4 @@ plot(sp_df)
 
 
 
-#geojson_write(sp_df, precision = 10, file = "export/202211_Miletus_Building_Catalogue_v12.geojson")
+geojson_write(sp_df, precision = 10, file = "export/202211_Miletus_Building_Catalogue_v13.geojson")
