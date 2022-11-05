@@ -137,18 +137,10 @@ st_write(buildings_complete, precision = 10,
 # make an emptly list
 group_list <- list()
 for (group in unique(periods_groups$group)) {
-  if (group %in% unique(buildings_complete$group)) {
-    # if the group is present in our data: 
-    # make a list of all rows that belong to just that group
-    new_list <- list(group = buildings_complete[which(buildings_complete$group == group),])
-    # name the group
-    names(new_list) <- group
-  } else {
-    # if the group is not present in our data, make an empty list
-    new_list <- list(group = NA)
-    # with the corresponding group name
-    names(new_list) <- group
-  }
+  # make a list of all rows that belong to just that group
+  new_list <- list(group = buildings_complete[which(buildings_complete$group == group),])
+  # name the group
+  names(new_list) <- group
   # append each group again to the list
   group_list <- append(group_list, new_list)
 }
