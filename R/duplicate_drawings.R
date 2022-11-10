@@ -102,7 +102,7 @@ replace_by_period_group <- function(single_building, periods_groups = periods_gr
 buildings_dating_dupl <- as.data.frame(matrix(ncol = ncol(buildings_dating)+1, nrow = 1))
 colnames(buildings_dating_dupl) <- c(colnames(buildings_dating), "period")
 
-# replace and suplicate each building, appending the result to the new df
+# replace and duplicate each building, appending the result to the new df
 for(i in 1:nrow(buildings_dating)) {
   single_building <- replace_by_period_group(buildings_dating[i, ], periods_groups)
   buildings_dating_dupl <- rbind(buildings_dating_dupl, single_building)
