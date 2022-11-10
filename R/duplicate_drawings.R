@@ -120,6 +120,7 @@ buildings_complete <- buildings_dating_dupl %>%
   left_join(periods_dat) %>%
   left_join(periods_groups) %>%
   full_join(Miletus_geom) %>%
+  filter(hasGeom == "Umzeichnung vorhanden") %>%
   select(-hasGeom, -Art, -Shape_Length, -Shape_Area)
 
 #colnames(Miletus_geom)
