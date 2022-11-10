@@ -4,7 +4,7 @@
 "3","Hafentor am Humeitepe","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Später Hellenismus","Frühbyzantinisch / Spätantik"
 "4","Tabernae am Athenatempel","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
 "5","Heilige Straße","Datensatz vorhanden",,"TRUE","Archaisch","Kaiserzeitlich"
-"6","Delphinion - hellenistischer Umbau I","Datensatz vorhanden",,"FALSE","Archaisch","Mittelkaiserzeitlich"
+"6","Delphinion - hellenistischer Umbau I","Datensatz vorhanden",,"FALSE","Hellenistisch","Kaiserzeitlich"
 "7","von-Gerkan-Mauer","Datensatz vorhanden",,"FALSE","Rezent","Rezent"
 "8","Insula KL/12-13","Datensatz vorhanden",,"FALSE","Klassisch","Kaiserzeitlich"
 "9","Rundkirche","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
@@ -26,7 +26,7 @@
 "25","Bad am Theater","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Mentese / emiratszeitlich","Mentese / emiratszeitlich"
 "26","Hellenistisches Gebäude unter Heroon III","Datensatz vorhanden",,"TRUE","Hellenistisch","Hellenistisch"
 "27","Temenos mit Tempel","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
-"28","Antike Stadtmauer","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"28","Stadtmauer - Südliche Quermauer","Datensatz vorhanden",,"FALSE",,
 "29","Hallenbau am sog. Nordmarkt","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
 "30","Athenatempel Phase IVa","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätbronzezeitlich [Milet IV]","Spätbronzezeitlich [Milet IV]"
 "31","Hellenistisches Gebäude","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
@@ -64,13 +64,13 @@
 "63","Römisches Hofhaus am Athenatempel","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
 "64","Thermenkastell","Datensatz vorhanden",,"TRUE","Spätkaiserzeitlich","Spätantik"
 "65","Han am Humeitepe","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
-"66","Synagoge","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"66","Synagoge","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätantik","Spätantik"
 "67","Bothros im Aphroditeheiligtum","Datensatz vorhanden",,"TRUE","Archaisch","Archaisch"
-"68","Athenatempel (jüngerer)","Datensatz vorhanden",,"FALSE",,
+"68","Athenatempel (jüngerer)","Datensatz vorhanden",,"FALSE","Frühklassisch","Frühkaiserzeitlich"
 "69","Westhang des Kalabaktepe","Datensatz vorhanden",,"FALSE","Archaisch","Archaisch"
 "70","Athenatempel Phase III","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Mittelbronzezeitlich [Milet III]","Mittelbronzezeitlich [Milet III]"
 "71","Tempel B","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
-"72","Delphinion - Frühhellenistisch","Datensatz vorhanden",,"FALSE","Archaisch","Mittelkaiserzeitlich"
+"72","Delphinion - Frühhellenistisch","Datensatz vorhanden",,"FALSE","Früher Hellenismus","Kaiserzeitlich"
 "73","Altar des Demetertempels","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Hellenistisch"
 "74","Byzantinische Stadtmauer","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Frühbyzantinisch / Spätantik","Frühbyzantinisch / Spätantik"
 "75","Bad des Ibrahim Bey Komplexes","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
@@ -81,71 +81,73 @@
 "80","Mescid am Humeitepe","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
 "81","Älteres heiliges Tor","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Klassisch","Klassisch"
 "82","Kaianlagen am südlichen Löwenhafen","Datensatz vorhanden",,"TRUE","Hellenistisch","Kaiserzeitlich"
-"83","Löwentor","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"84","Gneisbau","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Archaisch","Kaiserzeitlich"
-"85","Archaische Stadtmauer","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
-"86","Demetertempel","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Hellenistisch"
-"87","Wohnhaus FG/24-25 Phase 2","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"88","Osthafenthermen","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Kaiserzeitlich","Kaiserzeitlich"
-"89","Magazinbau am Löwenhafen","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mittelkaiserzeitlich","Mittelkaiserzeitlich"
-"90","Südstadt-Basilika","Datensatz vorhanden",,"TRUE","Byzantinisch","Byzantinisch"
-"91","Insula DE/25-26","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Frühkaiserzeitlich","Frühbyzantinisch / Spätantik"
-"92","Thermen am Humeitepe","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Mittelkaiserzeitlich","Mittelkaiserzeitlich"
-"93","Nymphäum","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
-"94","Heroon I","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Mittelkaiserzeitlich"
-"95","Quartier am Osthang des Kalabaktepe","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
-"96","Athenatempel (älterer)","Datensatz vorhanden",,"FALSE",,
-"97","Jüngeres heiliges Tor","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätklassik","Kaiserzeitlich"
-"98","Kleines Hafenmonument","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Frühkaiserzeitlich","Frühkaiserzeitlich"
-"99","Heiligtum der Aphrodite von Oikous","Datensatz vorhanden",,"TRUE","Früharchaisch","Spätarchaisch"
-"100","Brunnen in der Südstadt","Datensatz vorhanden",,"FALSE","Rezent","Rezent"
-"101","Vier-Säulen-Moschee","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Spätbyzantinisch","Osmanisch"
-"102","Hellenistische Hofanlage","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
-"103","Bouleuterion","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
-"104","Dionysosheiligtum","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
-"105","Tekke","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
-"106","Antentempel","Datensatz vorhanden",,"TRUE","Hellenistisch","Hellenistisch"
-"107","Delphinion - Kaiserzeitlich","Datensatz vorhanden",,"FALSE","Kaiserzeitlich","Frühbyzantinisch / Spätantik"
-"108","Heiligtum am Nordmarkt","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
-"109","Delphinion - hellenistischer Umbau II","Datensatz vorhanden",,"FALSE","Archaisch","Mittelkaiserzeitlich"
-"110","Peristylhaus unter dem Bischospalast","Datensatz vorhanden",,"FALSE","Spätkaiserzeitlich","Frühbyzantinisch / Spätantik"
-"111","Südmarkt mit Antiochosstoa","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
-"112","Steinbruch am Zeytintepe","Datensatz vorhanden",,"FALSE",,
-"113","Ilyas Bey Moschee","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
-"114","Altar auf der Heiligen Straße","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Frühkaiserzeitlich"
-"115","Wohnhaus FG/24-25 Phase 1","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"116","Schatzhaus des Demeterheiligtums","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"117","Artemis Kithone Heiligtum","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
-"118","Markttor von Milet","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Byzantinisch"
-"119","Hafenhalle","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Früher Hellenismus","Kaiserzeitlich"
-"120","Stadion","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Kaiserzeitlich"
-"121","Theater","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
-"122","Sebasteion","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"123","Bischofspalast","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Frühbyzantinisch / Spätantik","Frühbyzantinisch / Spätantik"
-"124","Quartier am Südhang des Kalabaktepe","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
-"125","Wohngebäude unter dem Dionysosheiligtum","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Klassisch","Früher Hellenismus"
-"126","Südstadtthermen","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätkaiserzeitlich","Spätkaiserzeitlich"
-"127","Athenatempel Phase VI","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätbronzezeitlich [Milet VI]","Spätbronzezeitlich [Milet VI]"
-"128","Delphinion - Frühklassissch","Datensatz vorhanden",,"FALSE","Frühklassisch","Früher Hellenismus"
-"129","Mescid beim Serapeion","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Mentese / emiratszeitlich"
-"130","Antiochosstoa","Datensatz vorhanden",,"TRUE","Hellenistisch","Kaiserzeitlich"
-"131","Capitothermen","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Frühkaiserzeitlich","Frühkaiserzeitlich"
-"132","Eumenes-Gymnasion","Datensatz vorhanden",,"TRUE","Hellenistisch","Hellenistisch"
-"133","Wohnhaus FG/24-25 Phase 3","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"134","Hafentor","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
-"135","Bau im Peristylhof des Bouleuterions","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Später Hellenismus","Frühkaiserzeitlich"
-"136","Spätantike Platzanlage am Kalabaktepe","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Frühbyzantinisch / Spätantik","Frühbyzantinisch / Spätantik"
-"137","Hagia Paraskevi","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
-"138","Serapeion","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
-"139","Michaelskirche","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Byzantinisch","Byzantinisch"
-"140","Byzantinische Kapelle","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
-"141","Kaletepe-Moschee","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Mentese / emiratszeitlich"
-"142","Museum","Datensatz vorhanden",,"TRUE","Rezent","Rezent"
-"143","Stadtmauer um den Humeitepe","Datensatz vorhanden",,"TRUE","Hellenistisch","Frühbyzantinisch / Spätantik"
-"144","Athenatempel",,"Umzeichnung vorhanden",,,
-"145","Delphinion",,"Umzeichnung vorhanden",,,
-"146","Westhang des Kalabaktepe ",,"Umzeichnung vorhanden",,,
-"147","Theater Schraffur",,"Umzeichnung vorhanden",,,
-"148","Kaletepe-Moschee-Grab",,"Umzeichnung vorhanden",,,
-"149","Angrenzende Mauern vom Ibrahim Bey Komplex",,"Umzeichnung vorhanden",,,
-"150","Zeytintepe",,"Umzeichnung vorhanden",,,
+"83","Löwentor","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Spätantik"
+"84","Stadtmauer - Ostmauer","Datensatz vorhanden",,"FALSE",,
+"85","Gneisbau","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Archaisch","Kaiserzeitlich"
+"86","Archaische Stadtmauer","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
+"87","Demetertempel","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Hellenistisch"
+"88","Wohnhaus FG/24-25 Phase 2","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"89","Osthafenthermen","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Kaiserzeitlich","Kaiserzeitlich"
+"90","Magazinbau am Löwenhafen","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mittelkaiserzeitlich","Mittelkaiserzeitlich"
+"91","Südstadt-Basilika","Datensatz vorhanden",,"TRUE","Byzantinisch","Byzantinisch"
+"92","Insula DE/25-26","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Frühkaiserzeitlich","Frühbyzantinisch / Spätantik"
+"93","Thermen am Humeitepe","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Mittelkaiserzeitlich","Mittelkaiserzeitlich"
+"94","Nymphäum","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
+"95","Heroon I","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Mittelkaiserzeitlich"
+"96","Quartier am Osthang des Kalabaktepe","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
+"97","Athenatempel (älterer)","Datensatz vorhanden",,"FALSE","Hocharchaisch","Perserzerstörung"
+"98","Jüngeres heiliges Tor","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätklassik","Kaiserzeitlich"
+"99","Kleines Hafenmonument","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Frühkaiserzeitlich","Frühkaiserzeitlich"
+"100","Heiligtum der Aphrodite von Oikous","Datensatz vorhanden",,"TRUE","Früharchaisch","Spätarchaisch"
+"101","Brunnen in der Südstadt","Datensatz vorhanden",,"FALSE","Rezent","Rezent"
+"102","Vier-Säulen-Moschee","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Spätbyzantinisch","Osmanisch"
+"103","Hellenistische Hofanlage","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
+"104","Bouleuterion","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
+"105","Dionysosheiligtum","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
+"106","Tekke","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
+"107","Antentempel","Datensatz vorhanden",,"TRUE","Hellenistisch","Hellenistisch"
+"108","Delphinion - Kaiserzeitlich","Datensatz vorhanden",,"FALSE","Kaiserzeitlich","Frühbyzantinisch / Spätantik"
+"109","Heiligtum am Nordmarkt","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
+"110","Delphinion - hellenistischer Umbau II","Datensatz vorhanden",,"FALSE","Später Hellenismus","Kaiserzeitlich"
+"111","Peristylhaus unter dem Bischospalast","Datensatz vorhanden",,"FALSE","Spätkaiserzeitlich","Frühbyzantinisch / Spätantik"
+"112","Südmarkt mit Antiochosstoa","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
+"113","Steinbruch am Zeytintepe","Datensatz vorhanden",,"FALSE",,
+"114","Ilyas Bey Moschee","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
+"115","Altar auf der Heiligen Straße","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Frühkaiserzeitlich"
+"116","Wohnhaus FG/24-25 Phase 1","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"117","Schatzhaus des Demeterheiligtums","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"118","Artemis Kithone Heiligtum","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
+"119","Markttor von Milet","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Byzantinisch"
+"120","Hafenhalle","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Früher Hellenismus","Kaiserzeitlich"
+"121","Stadion","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Kaiserzeitlich"
+"122","Theater","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
+"123","Sebasteion","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"124","Bischofspalast","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Frühbyzantinisch / Spätantik","Frühbyzantinisch / Spätantik"
+"125","Quartier am Südhang des Kalabaktepe","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
+"126","Wohngebäude unter dem Dionysosheiligtum","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Klassisch","Früher Hellenismus"
+"127","Südstadtthermen","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätkaiserzeitlich","Spätkaiserzeitlich"
+"128","Athenatempel Phase VI","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätbronzezeitlich [Milet VI]","Spätbronzezeitlich [Milet VI]"
+"129","Delphinion - Frühklassissch","Datensatz vorhanden",,"FALSE","Frühklassisch","Früher Hellenismus"
+"130","Mescid beim Serapeion","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Mentese / emiratszeitlich"
+"131","Antiochosstoa","Datensatz vorhanden",,"TRUE","Hellenistisch","Kaiserzeitlich"
+"132","Capitothermen","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Frühkaiserzeitlich","Frühkaiserzeitlich"
+"133","Eumenes-Gymnasion","Datensatz vorhanden",,"TRUE","Hellenistisch","Hellenistisch"
+"134","Wohnhaus FG/24-25 Phase 3","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"135","Hafentor","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
+"136","Bau im Peristylhof des Bouleuterions","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Später Hellenismus","Frühkaiserzeitlich"
+"137","Spätantike Platzanlage am Kalabaktepe","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Frühbyzantinisch / Spätantik","Frühbyzantinisch / Spätantik"
+"138","Hagia Paraskevi","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Osmanisch"
+"139","Serapeion","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
+"140","Michaelskirche","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Byzantinisch","Byzantinisch"
+"141","Byzantinische Kapelle","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"142","Kaletepe-Moschee","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mentese / emiratszeitlich","Mentese / emiratszeitlich"
+"143","Museum","Datensatz vorhanden",,"TRUE","Rezent","Rezent"
+"144","Stadtmauer um den Humeitepe","Datensatz vorhanden",,"TRUE","Hellenistisch","Frühbyzantinisch / Spätantik"
+"145","Athenatempel",,"Umzeichnung vorhanden",,,
+"146","Delphinion",,"Umzeichnung vorhanden",,,
+"147","Westhang des Kalabaktepe ",,"Umzeichnung vorhanden",,,
+"148","Antike Stadtmauer",,"Umzeichnung vorhanden",,,
+"149","Theater Schraffur",,"Umzeichnung vorhanden",,,
+"150","Kaletepe-Moschee-Grab",,"Umzeichnung vorhanden",,,
+"151","Angrenzende Mauern vom Ibrahim Bey Komplex",,"Umzeichnung vorhanden",,,
+"152","Zeytintepe",,"Umzeichnung vorhanden",,,
