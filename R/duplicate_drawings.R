@@ -34,7 +34,7 @@ rm(buildings_check)
 
 # get the identifier and dating / periods of each building (data_mat is made in file "R/load_data.R")
 buildings_dating <- data_mat %>% 
-  select(identifier, period.start, period.end)
+  select(identifier, context, buildingType, period.start, period.end)
 
 
 # function to make the loop cleaner
