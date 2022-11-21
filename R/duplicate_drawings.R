@@ -121,13 +121,13 @@ buildings_complete <- buildings_dating_dupl %>%
   left_join(periods_groups) %>%
   full_join(Miletus_geom) %>%
   filter(hasGeom == "Umzeichnung vorhanden") %>%
-  select(-hasGeom, -Art, -Shape_Length, -Shape_Area)
+  select(-hasGeom, -Art)
 
 #colnames(Miletus_geom)
 #colnames(buildings_complete)
 
 # export and save a geojson again (remember to change date for new version)
-filename <- "export/20221105_Miletus_geom.geojson"
+filename <- "export/20221121_Miletus_geom.geojson"
 file.remove(filename)
 st_write(buildings_complete, precision = 10, 
          dsn = filename)
