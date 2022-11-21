@@ -3,6 +3,7 @@ library(tidyverse)
 library(rgdal)
 library(sf)
 library(utf8)
+library(geojsonio)
 
 
 source(file = "R/functions.R")
@@ -16,10 +17,12 @@ source(file = "R/load_data.R")
 
 buildings_clean <- buildings
 
-
+no_geom <- c("test")
 for (i in seq_along(buildings_clean)) {
   type <- buildings_clean[[i]]$geometry$type
   if (is.null(type)) {
+    no_geom <- c(no_geom, buildings_clean[[i]]$identifier)
+    buildings_clean[i] <- NULL
     next
   } else if (type == "Polygon" | type == "MultiPolygon") {
     coordslist <- buildings_clean[[i]]$geometry$coordinates
@@ -34,6 +37,7 @@ for (i in seq_along(buildings_clean)) {
     buildings_clean[[i]]$geometry$coordinates <- polylist
   }
 }
+no_geom
 
 
 
@@ -49,7 +53,7 @@ plot(sp_geom)
 keep <- c("identifier", "shortDescription", "description",
           "period.start", "period.end",
           "buildingCategory", "context", "buildingType",
-          "gazId", "arachneId", "literature")
+          "gazId", "arachneId")
 
 data_mat <- data_mat %>%
   dplyr::select(all_of(keep)) %>%
@@ -81,20 +85,26 @@ data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
 
 
 
+data_mat$literature <- NULL
 
-
-for (i in 1:length(data_mat)) {
-  data_mat$literature[i] <- list(buildings[[i]]$literature)
+for (i in 1:nrow(data_mat)) {
+  litlist <- buildings_raw[[i]]$literature
+  if (!is.null(litlist)) {
+    data_mat$literature[i] <- list(lapply(litlist, unlist))
+  } else {
+    data_mat$literature[i] <- NA
+  }
 }
+
 
 
 lit_col <- which(colnames(data_mat) == "literature")
 url_col <- which(colnames(data_mat) == "URL")
 
-for (c in 1:ncol(data_mat)) {
-  for (r in 1:nrow(data_mat)) {
-    if(c == lit_col) {
-      cell <-  flatten(data_mat[r,c])
+for (r in 1:nrow(data_mat)) {
+  for (c in 1:ncol(data_mat)) {
+    if (c == lit_col) {
+      cell <- flatten(data_mat[r,c])
       final <- c(rep(NA, length(cell)))
       for (l in seq_along(cell)) {
         list <- unlist(cell[[l]])
@@ -104,23 +114,26 @@ for (c in 1:ncol(data_mat)) {
           quote <- paste(list["quotation"], list["page"], sep = ", ")
         }
         quote <- as.character(quote)
-        link <- paste('<a href="https://zenon.dainst.org/Record/', 
-                      list["zenonId"],
-                      '">', sep = "")
-        link <- as.character(link)
-        final[l] <- paste('<li>', link, quote, '</a></li>', sep = "")
-        #print(final)
+        if (!is.na(list['zenonId'])) {
+          link <- paste('<a href="https://zenon.dainst.org/Record/', 
+                        list["zenonId"],
+                        '">', sep = "")
+          link <- as.character(link)
+          final[l] <- paste('<li>', link, quote, '</a></li>', sep = "")
+        } else {
+          final[l] <- paste('<li>', quote, '</li>', sep = "")
+        }
       }
       cell <- paste("<ul>", paste(final, collapse = " "), "</ul>", sep = " ")
-      cell <- gsub('<li><a href="https://zenon.dainst.org/Record/NA">NA, NA</a></li>',
-                   "", cell)
+      if (grepl("<li>NA</li>", cell)) {
+        cell <- "...folgt"
+      }
     } else if (c == url_col){
       cell <- if (is.na(data_mat[r,c])) "" else data_mat[r,c]
     } else {
       cell <- unlist(data_mat[r,c])
       cell <- paste(cell, collapse = ", ")
       cell <- gsub("NA; ", "", cell)
-      #cell <- gsub("NA", "", cell)
     }
     data_mat_clean[r,c] <- as_utf8(cell)
   }
@@ -132,9 +145,6 @@ colnames(data_mat_clean) <- gsub("\\.", "_", colnames(data_mat))
 data_df <- as.data.frame(data_mat_clean)
 
 
-#buildings[[which(data_df$identifier == "Bouleuterion")]]$literature
-
-#test <- data_df[c("identifier", "literature")]
 
 
 
@@ -144,4 +154,4 @@ plot(sp_df)
 
 
 
-geojson_write(sp_df, precision = 10, file = "export/202211_Miletus_Building_Catalogue_v13.geojson")
+geojson_write(sp_df, precision = 10, file = "export/20221121_Miletus_Map_Guide.geojson")
