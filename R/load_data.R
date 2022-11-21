@@ -5,11 +5,12 @@ connection <- connect_idaifield(serverip = "127.0.0.1",
                                 user = "R",
                                 pwd = "hallo")
 
-
-buildings <- get_idaifield_docs(
+buildings_raw <- get_idaifield_docs(
   connection = connection,
   projectname = "milet", raw = FALSE) %>%
-  select_by(by = "liesWithin", value = "Bauwerkskatalog") %>%
+  select_by(by = "liesWithin", value = "Bauwerkskatalog")
+
+buildings <- buildings_raw %>%
   simplify_idaifield(replace_uids = TRUE, keep_geometry = TRUE)
 
 data_mat <- buildings %>% idaifield_as_matrix() %>% as.data.frame()
