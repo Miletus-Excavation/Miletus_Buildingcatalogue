@@ -124,7 +124,13 @@ buildings_complete <- buildings_dating_dupl %>%
   select(-hasGeom, -Art)
 
 #colnames(Miletus_geom)
-#colnames(buildings_complete)
+
+
+
+# remove "." from colnames so css will work 
+colnames(buildings_complete) <- gsub("\\.", "_", colnames(buildings_complete))
+
+
 
 # export and save a geojson again (remember to change date for new version)
 filename <- "export/20221121_Miletus_geom.geojson"
