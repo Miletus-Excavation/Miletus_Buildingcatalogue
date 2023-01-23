@@ -13,3 +13,6 @@ Required packages are `idaifieldR` [(GitHub)](https://github.com/lsteinmann/idai
 
 ## Funding
 This repository was produced during our work for the [Miletus Excavation](https://www.miletgrabung.uni-hamburg.de/) in the course of the DFG/ANR-funded project ["Life Forms in the Megapolis: Miletus in the Longue Durée"](https://www.kulturwissenschaften.uni-hamburg.de/ka/forschung/lebensformen-megapolis.html) headed by Christof Berns and Julien Zurbach. 
+
+## License
+The License in the repository only affects the script itself. The map and its layers (of which exports are included as data in this repository) are protected under the conditions of a [CC BY-NC-SA 4.0-License (Creative Commons Attribution-NonCommercial-ShareAlike 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/). If you have any questions regarding the license, or require a specific permission for your intended purpose, please let us know at: [miletgrabung@uni-hamburg.de](mailto:miletgrabung@uni-hamburg.de). We would greatly appreciate any notification of publication or use of the map in any case.
