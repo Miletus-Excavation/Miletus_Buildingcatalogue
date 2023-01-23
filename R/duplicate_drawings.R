@@ -15,6 +15,13 @@ Miletus_geom <- st_read(dsn = "import/Miletus_geom.geojson")
 # add column to mark existing drawings
 Miletus_geom$hasGeom <- "Umzeichnung vorhanden"
 
+
+# remove z/m-values to obtain 2d-polygons
+Miletus_geom <- st_zm(Miletus_geom, drop = TRUE, what = "ZM")
+
+#result
+Miletus_geom
+
 # change "Name" variable to "identifier" to suit DB export
 colnames(Miletus_geom)[which(colnames(Miletus_geom) == "Name")] <- "identifier"
 
@@ -133,7 +140,7 @@ colnames(buildings_complete) <- gsub("\\.", "_", colnames(buildings_complete))
 
 
 # export and save a geojson again (remember to change date for new version)
-filename <- "export/20221121_Miletus_geom.geojson"
+filename <- "export/20230123_Miletus_geom.geojson"
 file.remove(filename)
 st_write(buildings_complete, precision = 10, 
          dsn = filename)
@@ -165,13 +172,20 @@ for (list in seq_along(group_list)) {
   # add a 0 before single numbers so that it will be sorted correctly in explorer etc.
   num <- ifelse(list < 10, paste("0", list, sep = ""), list)
   # paste together the filename from number and list name etc.
-  filename <- paste("export/single/Map_of_Miletus_", num, "_", filename, ".geojson", sep = "")
+  filename_geojson <- paste("export/single/Map_of_Miletus_v1-1_", num, "_", filename, ".geojson", sep = "")
   
-  print(filename)
-  # remove the file, because append = FALSE does not work and overwriting is impossible
-  file.remove(filename)
+  print(filename_geojson)
+  # delete_dsn = TRUE removes previous files!
   # save as individual files!
-  st_write(group_list[[list]], precision = 10, dsn = filename)
+  st_write(group_list[[list]], precision = 10, dsn = filename_geojson, delete_dsn = TRUE)
+  
+  
+  filename_shp <- paste("export/single/Map_of_Miletus_v1-1_", num, "_", filename, ".shp", sep = "")
+  
+  print(filename_shp)
+  # delete_dsn = TRUE removes previous files!
+  # save as individual files!
+  if (nrow(group_list[[2]]) > 0) {
+    st_write(group_list[[list]], precision = 10, dsn = filename_shp, driver="ESRI Shapefile", delete_dsn = TRUE)
+  }
 }
-
-
