@@ -186,6 +186,6 @@ for (list in seq_along(group_list)) {
   # delete_dsn = TRUE removes previous files!
   # save as individual files!
   if (nrow(group_list[[2]]) > 0) {
-    st_write(group_list[[list]], precision = 10, dsn = filename_shp, driver="ESRI Shapefile", delete_dsn = TRUE)
+    st_write(group_list[[list]], precision = 10, layer_options = "ENCODING=UTF-8", dsn = filename_shp, driver="ESRI Shapefile", delete_dsn = TRUE)
   }
 }
