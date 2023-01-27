@@ -140,10 +140,16 @@ colnames(buildings_complete) <- gsub("\\.", "_", colnames(buildings_complete))
 
 
 # export and save a geojson again (remember to change date for new version)
-filename <- "export/20230123_Miletus_geom.geojson"
-file.remove(filename)
+filename <- "export/20230127_Miletus_geom"
+#file.remove(filename)
 st_write(buildings_complete, precision = 10, 
-         dsn = filename)
+         dsn = paste(filename, ".geojson", sep = ""), 
+         delete_dsn = TRUE)
+st_write(buildings_complete, precision = 10, 
+         layer_options = "ENCODING=UTF-8", 
+         dsn = paste(filename, ".shp", sep = ""), 
+         driver="ESRI Shapefile", 
+         delete_dsn = TRUE)
 
 
 # for export of everything separated by period-group:
