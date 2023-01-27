@@ -73,7 +73,7 @@ data_mat <- data_mat %>%
                       "Webseite der Miletgrabung")) %>%
   select(-gazId)
 
-# #TODO:  ghazetter link bei NA rauswerfen
+# #TODO:  ---
 
 #'data_mat$label <- paste('<b><a href="', data_mat$URL, '">', data_mat$identifier,
 #'                   '</a></b><br/>Datierung: ', data_mat$period.start, '--',
@@ -81,11 +81,9 @@ data_mat <- data_mat %>%
 #'<br/><br/>Literatur: ', data_mat$literature)
 #'
 
+
+data_mat$literature <- NA
 data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
-
-
-
-data_mat$literature <- NULL
 
 for (i in 1:nrow(data_mat)) {
   litlist <- buildings_raw[[i]]$literature
@@ -144,8 +142,8 @@ colnames(data_mat_clean) <- gsub("\\.", "_", colnames(data_mat))
 
 data_df <- as.data.frame(data_mat_clean)
 
-
-
+buildings_complete <- as.data.frame(idaifield_as_matrix(buildings_clean))
+write.csv(buildings_complete[,-which(colnames(buildings_complete) == "geometry")], "export/buildings_complete.csv", fileEncoding = "UTF-8")
 
 
 sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
@@ -154,4 +152,4 @@ plot(sp_df)
 
 
 
-geojson_write(sp_df, precision = 10, file = "export/20221121_Miletus_Map_Guide.geojson")
+geojson_write(sp_df, precision = 10, file = "export/20230127_Miletus_Map_Guide.geojson")
