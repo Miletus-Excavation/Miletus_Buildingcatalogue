@@ -142,8 +142,8 @@ colnames(data_mat_clean) <- gsub("\\.", "_", colnames(data_mat))
 
 data_df <- as.data.frame(data_mat_clean)
 
-buildings_complete <- as.data.frame(idaifield_as_matrix(buildings_clean))
-write.csv(buildings_complete[,-which(colnames(buildings_complete) == "geometry")], "export/buildings_complete.csv", fileEncoding = "UTF-8")
+buildings_clean_df <- as.data.frame(idaifield_as_matrix(buildings_clean))
+write.csv(buildings_clean_df[,-which(colnames(buildings_clean_df) == "geometry")], "export/buildings_complete.csv", fileEncoding = "UTF-8")
 
 
 sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
