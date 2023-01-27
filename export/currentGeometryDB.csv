@@ -7,7 +7,7 @@
 "6","Delphinion - hellenistischer Umbau I","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Kaiserzeitlich"
 "7","von-Gerkan-Mauer","Datensatz vorhanden",,"FALSE","Rezent","Rezent"
 "8","Insula KL/12-13","Datensatz vorhanden",,"FALSE","Klassisch","Kaiserzeitlich"
-"9","Rundkirche","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"9","Rundkirche","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Byzantinisch","Byzantinisch"
 "10","Apsidenbau mit Propylon","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Kaiserzeitlich"
 "11","<U+03A0>-förmige Halle","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
 "12","Thermen am Westmarkt","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Mittelkaiserzeitlich","Mittelkaiserzeitlich"
@@ -43,7 +43,7 @@
 "42","Stadtmauer - Südliche Quermauer, späthellenistischer Ausbau","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Später Hellenismus","Spätantik"
 "43","Hellenistisches Peristyl","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
 "44","Faustinathermen","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Kaiserzeitlich","Spätantik"
-"45","Schmiede","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"45","Schmiede","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Mentese / emiratszeitlich","Osmanisch"
 "46","Stadiontor","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Spätkaiserzeitlich","Frühbyzantinisch / Spätantik"
 "47","Thermen am Museum","Datensatz vorhanden",,"TRUE","Spätkaiserzeitlich","Spätkaiserzeitlich"
 "48","Hafenhalle - Latrine","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Spätkaiserzeitlich","Byzantinisch"
@@ -85,7 +85,7 @@
 "84","Älteres heiliges Tor","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Klassisch","Klassisch"
 "85","Kaianlagen am südlichen Löwenhafen","Datensatz vorhanden",,"TRUE","Hellenistisch","Kaiserzeitlich"
 "86","Löwentor","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Spätantik"
-"87","Stadtmauer - Ostmauer","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"87","Stadtmauer - Ostmauer","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Früher Hellenismus","Spätkaiserzeitlich"
 "88","Gneisbau","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Archaisch","Kaiserzeitlich"
 "89","Archaische Stadtmauer","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Archaisch","Archaisch"
 "90","Demetertempel","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Hellenistisch","Hellenistisch"
@@ -111,7 +111,7 @@
 "110","Antentempel","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
 "111","Delphinion - Kaiserzeitlich","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Kaiserzeitlich","Frühbyzantinisch / Spätantik"
 "112","Heiligtum am Nordmarkt","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Hellenistisch"
-"113","Stadtmauer - Südliche Quermauer, Wiederherstellung der Gotenzeit","Datensatz vorhanden","Umzeichnung vorhanden","FALSE",,
+"113","Stadtmauer - Südliche Quermauer, Wiederherstellung der Gotenzeit","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Spätkaiserzeitlich","Spätkaiserzeitlich"
 "114","Delphinion - hellenistischer Umbau II","Datensatz vorhanden","Umzeichnung vorhanden","FALSE","Später Hellenismus","Kaiserzeitlich"
 "115","Peristylhaus unter dem Bischospalast","Datensatz vorhanden",,"FALSE","Spätkaiserzeitlich","Frühbyzantinisch / Spätantik"
 "116","Südmarkt mit Antiochosstoa","Datensatz vorhanden","Umzeichnung vorhanden","TRUE","Hellenistisch","Kaiserzeitlich"
