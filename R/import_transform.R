@@ -63,6 +63,58 @@ attributes <- data_mat %>%
   rename(UUID = id) %>%
   select(-gazId, -arachneId)
 
+
+
+
+#' in a laughingly complicated manner, find out which 
+#' features exist in the db but do not have a drawing
+no_geom <- is.na(match(attributes$UUID, Miletus_geom$UUID))
+no_geom <- attributes[no_geom, "identifier"]
+
+#' then take all of those and...
+dbgeoms <- lapply(buildings_raw, function(x) {
+  if (is.null(x[["geometry"]]) || !x["identifier"] %in% no_geom) {
+    # do not include if the identifier has not been selected 
+    # and if this one doesn't have a geometry either!
+    return(NULL)
+  } else {
+    # take the geometry and fix the polygons to conform to geojson
+    # (the last and first coords have to be exactly the same
+    # since field does not implement this correctly, we are checking and
+    # closing polygons here be adding the first point as last point:
+    coords <- x$geometry$coordinates[[1]]
+    if (!identical(coords[[1]], coords[[length(coords)]])) {
+      coords <- c(coords, coords[1])
+    }
+    # and we return a new list that only contains the UUID and the st-polygon
+    return(
+      list(
+        UUID = x[["id"]],
+        geometry = st_polygon(
+          list(matrix(unlist(coords), ncol = 2, byrow = TRUE))
+        )
+      )
+    )
+  }
+})  %>%
+  # and also: let's get rid of all the empty lists
+  Filter(Negate(is.null), .)
+
+# make it a feature collection (works only without attributes)
+sfc <- st_sfc(lapply(dbgeoms, function(x) x$geometry), crs = 32635)
+# and a proper sf collection by re-adding the attributes
+dbgeoms <- lapply(dbgeoms, function(x) x$UUID) %>% 
+  unlist() %>% as.data.frame() %>% 
+  rename(UUID = ".") %>%
+  st_sf(geometry = sfc) %>%
+  # and switching from UTM to the correct CRS for geojson!
+  st_transform(crs = 4326)
+
+
+map_guide_geom <- rbind(buildings_hull, dbgeoms)
+
+plot(map_guide_geom)
+
 # #TODO:  ---
 
 #'attributes$label <- paste('<b><a href="', attributes$URL, '">', attributes$identifier,
@@ -139,8 +191,7 @@ write.csv(attributes_clean,
 
 filename <- "export/Map_of_Miletus_Map_Guide"
 
-map_guide <- buildings_hull %>%
-  right_join(attributes_clean) 
+map_guide <- map_guide_geom %>%
+  right_join(attributes_clean)
 
 geojson_write(map_guide, precision = 10, file = paste0(filename, "_", today, ".geojson"))
-
