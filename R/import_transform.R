@@ -1,61 +1,48 @@
 library(idaifieldR)
-library(tidyverse)
-library(rgdal)
+packageVersion("idaifieldR")
+# remotes::install_github("lsteinmann/idaifieldR", build_vignettes = TRUE)
+library(dplyr)
+library(purrr)
 library(sf)
 library(utf8)
 library(geojsonio)
 
 
-source(file = "R/functions.R")
-
 source(file = "R/load_data.R")
 
+today <- gsub("-", "", Sys.Date())
 
 #browseVignettes("idaifieldR")
 
+Miletus_geom <- st_read(dsn = "SHP/Milet_gesamt_Polygone.shp") %>%
+  select(UUID, geometry)
 
+buildings_hull <- st_convex_hull(Miletus_geom)
+buildings_hull <- st_transform(buildings_hull, crs = 4326)
+# check: 
+# plot(buildings_hull)
 
-buildings_clean <- buildings
+# in the future, it should be possible to experiment and maybe consider using
+# concave hull instead; I don't have geos 3.11. right now, 
+# buildings_points <- st_cast(Miletus_geom, "MULTIPOINT")
+# buildings_concave <- st_concave_hull(buildings_points, ratio = 1, concavity = 2)
+# another package that may or may not work: 
+# library(concaveman)
+# buildings_concave <- concaveman(buildings_points, concavity = 1)
+# plot(buildings_concave)
 
-no_geom <- c("test")
-for (i in seq_along(buildings_clean)) {
-  type <- buildings_clean[[i]]$geometry$type
-  if (is.null(type)) {
-    no_geom <- c(no_geom, buildings_clean[[i]]$identifier)
-    buildings_clean[i] <- NULL
-    next
-  } else if (type == "Polygon" | type == "MultiPolygon") {
-    coordslist <- buildings_clean[[i]]$geometry$coordinates
-    for (item in seq_along(coordslist)) {
-      coordslist[[item]] <- make_sp_polygon(coordslist[[item]],
-                                            from_epsg = 32635,
-                                            to_epsg = 4326)
-      buildings_clean[[i]]$geometry$coordinates[[item]] <- coordslist[[item]]
-    }
-    polylist <- buildings_clean[[i]]$geometry$coordinates
-    polylist <- Polygons(polylist, ID = buildings[[i]]$identifier)
-    buildings_clean[[i]]$geometry$coordinates <- polylist
-  }
-}
-no_geom
-
-
-
-sp_geom <- lapply(buildings_clean, function(x) unlist(x$geometry$coordinates))
-
-sp_geom <- SpatialPolygons(sp_geom, pO = 1:length(buildings), proj4string=CRS("+init=epsg:4326"))
-
-
-plot(sp_geom)
-
+st_write(buildings_hull, paste0("SHP/Milet_gesamt_Polygone_convex_hull_", today, ".shp"))
 
 
 keep <- c("identifier", "shortDescription", "description",
           "period.start", "period.end",
           "buildingCategory", "context", "buildingType",
-          "gazId", "arachneId")
+          "gazId", "arachneId", "id")
 
-data_mat <- data_mat %>%
+
+
+attributes <- data_mat %>%
+  filter(mapWorkflow == TRUE) %>%
   dplyr::select(all_of(keep)) %>%
   mutate(shortDescription = as.character(unlist(shortDescription)),
          buildingCategory = as.factor(unlist(buildingCategory)),
@@ -71,38 +58,39 @@ data_mat <- data_mat %>%
   mutate(LinkTitle = ifelse(!is.na(arachneId),
                      "Link in iDAI.objects",
                       "Webseite der Miletgrabung")) %>%
-  select(-gazId)
+  rename(UUID = id) %>%
+  select(-gazId, -arachneId)
 
 # #TODO:  ---
 
-#'data_mat$label <- paste('<b><a href="', data_mat$URL, '">', data_mat$identifier,
-#'                   '</a></b><br/>Datierung: ', data_mat$period.start, '--',
-#'                   data_mat$period.end, '<br/><br/>', data_mat$description)#,
-#'<br/><br/>Literatur: ', data_mat$literature)
+#'attributes$label <- paste('<b><a href="', attributes$URL, '">', attributes$identifier,
+#'                   '</a></b><br/>Datierung: ', attributes$period.start, '--',
+#'                   attributes$period.end, '<br/><br/>', attributes$description)#,
+#'<br/><br/>Literatur: ', attributes$literature)
 #'
 
 
-data_mat$literature <- NA
-data_mat_clean <- matrix(nrow = nrow(data_mat), ncol = ncol(data_mat), " ")
+attributes$literature <- NA
+attributes_clean <- matrix(nrow = nrow(attributes), ncol = ncol(attributes), " ")
 
-for (i in 1:nrow(data_mat)) {
+for (i in 1:nrow(attributes)) {
   litlist <- buildings_raw[[i]]$literature
   if (!is.null(litlist)) {
-    data_mat$literature[i] <- list(lapply(litlist, unlist))
+    attributes$literature[i] <- list(lapply(litlist, unlist))
   } else {
-    data_mat$literature[i] <- NA
+    attributes$literature[i] <- NA
   }
 }
 
 
 
-lit_col <- which(colnames(data_mat) == "literature")
-url_col <- which(colnames(data_mat) == "URL")
+lit_col <- which(colnames(attributes) == "literature")
+url_col <- which(colnames(attributes) == "URL")
 
-for (r in 1:nrow(data_mat)) {
-  for (c in 1:ncol(data_mat)) {
+for (r in 1:nrow(attributes)) {
+  for (c in 1:ncol(attributes)) {
     if (c == lit_col) {
-      cell <- flatten(data_mat[r,c])
+      cell <- flatten(attributes[r,c])
       final <- c(rep(NA, length(cell)))
       for (l in seq_along(cell)) {
         list <- unlist(cell[[l]])
@@ -127,29 +115,30 @@ for (r in 1:nrow(data_mat)) {
         cell <- "...folgt"
       }
     } else if (c == url_col){
-      cell <- if (is.na(data_mat[r,c])) "" else data_mat[r,c]
+      cell <- if (is.na(attributes[r,c])) "" else attributes[r,c]
     } else {
-      cell <- unlist(data_mat[r,c])
+      cell <- unlist(attributes[r,c])
       cell <- paste(cell, collapse = ", ")
       cell <- gsub("NA; ", "", cell)
     }
-    data_mat_clean[r,c] <- as_utf8(cell)
+    attributes_clean[r,c] <- as_utf8(cell)
   }
 }
 
-rownames(data_mat_clean) <- data_mat[,"identifier"]
-colnames(data_mat_clean) <- gsub("\\.", "_", colnames(data_mat))
+rownames(attributes_clean) <- attributes[,"identifier"]
+colnames(attributes_clean) <- gsub("\\.", "_", colnames(attributes))
 
-data_df <- as.data.frame(data_mat_clean)
+attributes_clean <- as.data.frame(attributes_clean)
 
-buildings_clean_df <- as.data.frame(idaifield_as_matrix(buildings_clean))
-write.csv(buildings_clean_df[,-which(colnames(buildings_clean_df) == "geometry")], "export/buildings_complete.csv", fileEncoding = "UTF-8")
-
-
-sp_df <- SpatialPolygonsDataFrame(Sr = sp_geom, data = data_df)
-plot(sp_df)
+# save it as csv in case you want to check for anything: 
+write.csv(attributes_clean, 
+          "export/attributes_map_guide.csv", fileEncoding = "UTF-8")
 
 
+filename <- "export/Miletus_Map_Guide"
 
+map_guide <- buildings_hull %>%
+  left_join(attributes_clean) 
 
-geojson_write(sp_df, precision = 10, file = "export/20230127_Miletus_Map_Guide.geojson")
+geojson_write(map_guide, precision = 10, file = paste0(filename, "_", today, ".geojson"))
+

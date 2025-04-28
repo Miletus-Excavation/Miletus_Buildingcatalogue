@@ -7,9 +7,6 @@ source("R/load_data.R")
 # save the UUIDs as a file
 source("R/uuids.R")
 
-# load some helper functions
-source("R/functions.R")
-
 # import and reformat data from field to produce the geojson 
 # used for the Map Guide
 source("R/import_transform.R")
