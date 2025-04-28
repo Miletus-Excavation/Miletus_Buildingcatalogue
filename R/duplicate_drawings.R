@@ -4,7 +4,6 @@ library(sf)
 library(utf8)
 
 ## source
-source(file = "R/functions.R")
 source(file = "R/load_data.R")
 
 ##### load all polygons 

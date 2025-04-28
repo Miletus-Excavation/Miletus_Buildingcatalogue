@@ -31,7 +31,9 @@ buildings_hull <- st_transform(buildings_hull, crs = 4326)
 # buildings_concave <- concaveman(buildings_points, concavity = 1)
 # plot(buildings_concave)
 
-st_write(buildings_hull, paste0("SHP/export/Milet_gesamt_Polygone_convex_hull_", today, ".shp"))
+st_write(
+  buildings_hull, 
+  paste0("SHP/export/Milet_gesamt_Polygone_convex_hull_", today, ".shp"))
 
 
 keep <- c("identifier", "shortDescription", "description",
@@ -135,7 +137,7 @@ write.csv(attributes_clean,
           "export/attributes_map_guide.csv", fileEncoding = "UTF-8")
 
 
-filename <- "export/Miletus_Map_Guide"
+filename <- "export/Map_of_Miletus_Map_Guide"
 
 map_guide <- buildings_hull %>%
   left_join(attributes_clean) 
