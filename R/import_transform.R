@@ -31,7 +31,7 @@ buildings_hull <- st_transform(buildings_hull, crs = 4326)
 # buildings_concave <- concaveman(buildings_points, concavity = 1)
 # plot(buildings_concave)
 
-st_write(buildings_hull, paste0("SHP/Milet_gesamt_Polygone_convex_hull_", today, ".shp"))
+st_write(buildings_hull, paste0("SHP/export/Milet_gesamt_Polygone_convex_hull_", today, ".shp"))
 
 
 keep <- c("identifier", "shortDescription", "description",
