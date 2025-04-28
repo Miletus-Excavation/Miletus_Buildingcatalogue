@@ -1,0 +1,39 @@
+,period,from,to,color
+1,Neolitisch,-7000,-5001,#FFF176
+2,Chalkolitisch [Milet I],-5000,-3001,#FDD835
+3,Bronzezeitlich,-4250,-1001,#FFCC80
+4,Frühbronzezeitlich [Milet II],-4250,-2001,#FFB74D
+5,Mittelbronzezeitlich [Milet III],-2000,-1701,#FFA726
+6,Spätbronzezeitlich [Milet IV],-1700,-1401,#FF9800
+7,Spätbronzezeitlich [Milet V],-1400,-1311,#FB8C00
+8,Spätbronzezeitlich [Milet VI],-1310,-1191,#F57C00
+9,Spätbronzezeitlich [Milet VII],-1190,-1051,#EF6C00
+10,Geometrisch,-1050,-901,#FF6659
+11,Protogeometrisch,-900,-671,#FF574A
+12,Frühgeometrisch,-900,-851,#F9483B
+13,Mittelgeometrisch,-850,-751,#EA392C
+14,Spätgeometrisch,-750,-671,#DB2A1D
+15,Archaisch,-670,-480,#9C27B0
+16,Früharchaisch,-670,-581,#AB47BC
+17,Hocharchaisch,-580,-551,#9C27B0
+18,Spätarchaisch,-550,-480,#7B1FA2
+19,Perserzerstörung,-494,-494,#6A1B9A
+20,Klassisch,-480,-324,#441794
+21,Frühklassisch,-480,-426,#582BA8
+22,Spätklassik,-425,-324,#441794
+23,Hellenistisch,-323,-32,#1A237E
+24,Früher Hellenismus,-323,-178,#283593
+25,Später Hellenismus,-177,-32,#1A237E
+26,Kaiserzeitlich,-31,305,#1565C0
+27,Frühkaiserzeitlich,-31,98,#1976D2
+28,Mittelkaiserzeitlich,100,192,#1565C0
+29,Spätkaiserzeitlich,193,305,#0D47A1
+30,Spätantik,306,699,#00BCD4
+31,Byzantinisch,306,1299,#00ACC1
+32,Frühbyzantinisch / Spätantik,306,699,#00ACC1
+33,Mittelbyzantinisch,700,999,#0097A7
+34,Spätbyzantinisch,1000,1299,#00838F
+35,Menteşe / emiratszeitlich,1300,1425,#43A047
+36,Osmanisch,1426,1899,#1B5E20
+37,Rezent,1900,1999,#004D40
+38,NA,NA,NA,#000000

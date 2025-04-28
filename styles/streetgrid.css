@@ -1,0 +1,43 @@
+@mode 'Flat';
+@styleTitle 'Miletus Streetgrid';
+
+[@sd < 1000] {
+  stroke-width: 20,18;
+  stroke-opacity: 0.3;
+  stroke: #3b515b;
+  stroke-linecap: flat;
+}
+
+[@sd > 1000 AND @sd < 2500] {
+  stroke-width: 8;
+  stroke-opacity: 0.3;
+  stroke: #3b515b;
+  stroke-linecap: flat;
+}
+
+[@sd > 2500 AND @sd < 8000] {
+  stroke-width: 4,3;
+  stroke-opacity: 0.3;
+  stroke:#3b515b;
+  stroke-linecap: flat;
+}
+
+
+[@sd > 8000 AND @sd < 10000] {
+  stroke-width: 3,2;
+  stroke-opacity: 0.3;
+  stroke: #3b515b;
+  stroke-linecap: flat;
+}
+
+
+[@sd > 10000] {
+  stroke-width: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #3b515b;
+  stroke-linecap: flat;
+}
+
+
+
+

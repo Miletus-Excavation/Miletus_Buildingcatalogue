@@ -1,8 +1,0 @@
-{
-"type": "FeatureCollection",
-"name": "Map_of_Miletus_04_Geometrisch",
-"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::32635" } },
-"features": [
-
-]
-}

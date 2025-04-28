@@ -4,3 +4,9 @@
 .Ruserdata
 priv/*
 *.ods
+*.docx
+*.qgz
+CAD/*
+0_Shape_April*
+SHP/export/*
+export/*
