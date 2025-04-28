@@ -140,7 +140,7 @@ write.csv(attributes_clean,
 filename <- "export/Map_of_Miletus_Map_Guide"
 
 map_guide <- buildings_hull %>%
-  left_join(attributes_clean) 
+  right_join(attributes_clean) 
 
 geojson_write(map_guide, precision = 10, file = paste0(filename, "_", today, ".geojson"))
 
